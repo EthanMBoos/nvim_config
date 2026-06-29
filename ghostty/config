@@ -1,0 +1,51 @@
+font-family = "JetBrainsMono Nerd Font"
+font-size   = 14
+theme       = "Catppuccin Mocha"
+scrollback-limit = 10000
+
+# Required for alt+key keybinds below to register — without this, macOS
+# treats Option as a dead/diacritic key (e.g. alt+- types "–") instead of Alt
+macos-option-as-alt = true
+
+# Cross-platform keybinds (ctrl+shift matches Linux terminal convention)
+keybind = ctrl+shift+c=copy_to_clipboard
+keybind = ctrl+shift+v=paste_from_clipboard
+keybind = ctrl+shift+n=new_window
+keybind = ctrl+shift+t=new_tab
+keybind = ctrl+shift+w=close_surface
+
+# Tab switching
+keybind = ctrl+tab=next_tab
+keybind = ctrl+shift+tab=previous_tab
+
+# Pane splits
+keybind = alt+backslash=new_split:right
+keybind = alt+minus=new_split:down
+
+# Pane navigation — unified with Neovim window nav (ctrl+h/j/k/l)
+# performable: fires if a Ghostty split exists in that direction, otherwise passes through to Neovim
+keybind = performable:ctrl+h=goto_split:left
+keybind = performable:ctrl+j=goto_split:down
+keybind = performable:ctrl+k=goto_split:up
+keybind = performable:ctrl+l=goto_split:right
+
+# Pane resize — plain alt+hjkl is left unbound here so it always reaches
+# Neovim's own resize keymap; Ghostty gets shift instead. Wanted to just
+# share alt+hjkl the way ctrl+hjkl is shared above, but performable: eats
+# the key whenever Neovim splits on the same axis as Ghostty. Would love to
+# get resize feeling like vim-tmux-navigator someday (one key, don't care
+# which layer owns it) — see docs/ghostty-resize-performable-bug.md.
+#
+# How this should work once the bug is fixed upstream. Swap the four
+# alt+shift+* lines below for these and drop the shift requirement entirely:
+#   keybind = performable:alt+h=resize_split:left,20
+#   keybind = performable:alt+j=resize_split:down,10
+#   keybind = performable:alt+k=resize_split:up,10
+#   keybind = performable:alt+l=resize_split:right,20
+# To see the bug today: comment out the alt+shift+j/k lines below, uncomment
+# the performable:alt+j/k pair above, then :sp in Neovim and hold alt+j/k —
+# it resizes Ghostty's outer pane instead of the Neovim split.
+keybind = alt+shift+h=resize_split:left,20
+keybind = alt+shift+j=resize_split:down,10
+keybind = alt+shift+k=resize_split:up,10
+keybind = alt+shift+l=resize_split:right,20

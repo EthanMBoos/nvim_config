@@ -1,0 +1,9 @@
+# vi mode — esc to enter normal mode, k/j for history, h/l/w/b to move, v to edit in nvim
+set -o vi
+
+# fzf — fuzzy history picker (ctrl+r), file picker (ctrl+t)
+if command -v fzf &>/dev/null; then
+  eval "$(fzf --bash)"
+else
+  bind '"\C-r": reverse-search-history'
+fi

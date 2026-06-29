@@ -1,0 +1,39 @@
+-- Avante: AI assistant with in-editor UI (cursor-like experience)
+-- Requires ANTHROPIC_API_KEY in environment. Uncomment to enable.
+-- See: https://github.com/yetone/avante.nvim
+
+-- return {
+--   {
+--     'yetone/avante.nvim',
+--     event = 'VeryLazy',
+--     version = false,
+--     build = 'make',
+--     dependencies = {
+--       'nvim-lua/plenary.nvim',
+--       'MunifTanjim/nui.nvim',
+--     },
+--     opts = {
+--       provider = 'claude',
+--       providers = {
+--         claude = {
+--           endpoint = 'https://api.anthropic.com',
+--           model    = 'claude-opus-4-8',
+--           timeout  = 30000,
+--           extra_request_body = {
+--             temperature = 0,
+--             max_tokens  = 8192,
+--           },
+--         },
+--       },
+--       mappings = {
+--         ask     = '<leader>aa',
+--         edit    = '<leader>ae',
+--         refresh = '<leader>ar',
+--         focus   = '<leader>af',
+--         toggle  = { default = '<leader>at' },
+--       },
+--     },
+--   },
+-- }
+
+return {}
